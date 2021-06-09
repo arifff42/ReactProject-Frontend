@@ -10,11 +10,11 @@ export default function ProductDetail() {
 
   //sayfa yüklendiğinde useEffect çalıştır.
   useEffect(() => {
-    let productService = new ProductService()
+    let productService = new ProductService();
     productService
       .getByProductName(name)
-      .then(result => setProduct(result.data.data));
-  }, [])
+      .then((result) => setProduct(result.data.data));
+  }, []);
 
   return (
     <div>
@@ -24,10 +24,11 @@ export default function ProductDetail() {
             <Image
               floated="right"
               size="mini"
-              src="/images/avatar/large/steve.jpg"
+              src="https://www.camhotel.com.tr/uploads/ulkemizin-dort-bir-yanindan-guzel-manzara-fotograflari.jpg"
             />
+
             <Card.Header>{product.productName}</Card.Header>
-            <Card.Meta>{product.category.categoryName}</Card.Meta>
+            <Card.Meta>{product.category?.categoryName}</Card.Meta>
             <Card.Description>
               Steve wants to add you to the group <strong>best friends</strong>
             </Card.Description>
@@ -44,7 +45,6 @@ export default function ProductDetail() {
           </Card.Content>
         </Card>
       </Card.Group>
-      Ürün: {name}
     </div>
   );
 }
